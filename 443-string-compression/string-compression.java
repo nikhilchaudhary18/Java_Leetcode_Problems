@@ -2,22 +2,22 @@ class Solution {
     public int compress(char[] arr) {
         int i=0;
         int j=0;
-        String ans = "";
+        String str ="";
         while(j<arr.length){
-            if(arr[j]==arr[i]) j++;
+            if(arr[i]==arr[j]) j++;
             else{
-                ans+=arr[i];
-                int length = j-i;
-                if (length>1) ans+=length;
+                str+=arr[i];
+                int len = j-i;
+                if(len>1) str+=len;
                 i=j;
             }
         }
-        ans+=arr[i];
-            int length = j-i;
-            if (length>1) ans+=length;
-            for(i=0;i<ans.length();i++){
-                arr[i] =ans.charAt(i);
-            }
-        return ans.length();
+        str+=arr[i];
+        int len = j-i;
+        if(len>1) str+=len;
+        for(i=0;i<str.length();i++){
+            arr[i] = str.charAt(i);
+        }
+        return str.length();
     }
 }
